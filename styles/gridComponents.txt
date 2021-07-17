@@ -1,0 +1,163 @@
+---mobile---
+ -home page
+  --grid-template:
+   "nav" 50px
+   "content" 1fr
+   "footer" 50px
+   / 100vw;
+
+ -nav
+  --grid-template:
+   "logo" 30px
+   "icons" 30px
+   / 375px;
+
+ -content
+  --grid-template-columns:1fr 1fr;
+ -footer
+  --grid-template:
+   "copyright" 30px
+   "icons" 30px
+   / 375px;
+ -content item
+  --grid-template:
+   "image" 125px
+   "name/price" 20px
+   "buttons" 20px
+   / 175px;
+
+ -cart
+  --grid-template:
+   "icons" 40px
+   "totals" 20px
+   "items" 400px
+   "buttons" 160px
+   / 100vw;
+ -cart item
+  --grid-template:
+   "image" 195px
+   "name/price" 20px
+   "buttons" 20px
+   / 300px;
+
+ -checkout page
+  --grid-template:
+   "nav" 50px
+   "shipment" 1fr
+   "payment" 1fr
+   "summary" 2fr
+   "footer" 50px
+   / 100vw;
+
+-filter
+  --grid-template:
+   "title" 70px
+   "price" 210px
+   "color" 210px
+   "brand" 210px
+   / 375px;
+
+---laptop---
+ -home page
+  --grid-template:
+   "nav" 85px
+   "content" 1fr
+   "footer" 85px
+   / 100vw;
+ -nav
+  --grid-template:
+   "logo" 50px
+   "icons" 45px
+   / 1366px;
+ -content
+  --grid-template-columns:repeat(3,1fr);
+  --grid-template-rows:1fr 1fr;
+ -footer
+  --grid-template:
+   "copyright" 45px
+   "icons" 45px
+   / 1366px;
+
+ -checkout page
+  --grid-template:
+   "nav" 85px
+   "shipment summary" 1fr
+   "payment summary" 1fr
+   "footer" 85px
+   / 1366px;
+
+ ---desktop---
+ -home page
+  --grid-template:
+   "nav" 85px
+   "content" 1fr
+   "footer" 85px
+   / 1920px;
+ -nav
+  --grid-template:
+   "logo" 50px
+   "icons" 45px
+   / 1920px;
+ -content
+  --grid-template-columns:repeat(3,1fr);
+  --grid-template-rows:repeat(3,1fr);
+ -footer
+  --grid-template:
+   "copyright" 45px
+   "icons" 45px
+   / 1920px;
+
+ -checkout page
+  --grid-template:
+   "nav" 85px
+   "shipment summary" 1fr
+   "payment summary" 1fr
+   "footer" 85px
+   / 1920px;
+
+---modals---
+-desc. modal
+  --grid-template:
+   "title" 70px
+   "image" 160px
+   "desc" 80px
+   "buttons" 55px
+   / 375px;
+
+-added modal
+  --grid-template:
+   "title" 70px
+   "image" 240px
+   "buttons" 55px
+   / 375px;
+
+-register modal
+  --grid-template:
+   "icons" 115px
+   "inputs" 244px
+   "buttons" 150px
+   / 375px;
+
+-login modal
+  --grid-template:
+   "icons" 115px
+   "inputs" 160px
+   "buttons" 150px
+   / 375px;
+
+-success modal
+  --grid-template:
+   "icon" 75px
+   "title" 50px
+   "items" 1fr
+   "totals" 50px
+   "button" 50px
+   / 375px;
+
+-fail modal
+  --grid-template:
+   "icon" 75px
+   "title" 50px
+   "message" 50px
+   "buttons" 100px
+   / 375px;

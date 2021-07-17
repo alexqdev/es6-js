@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" media="screen" href="styles/style.css" />
+  <title>ES6+ eCommerce - Home</title>
+</head>
+
+<body>
+  <div id="main-container">
+    <div id="main-container-inner">
+      <div id="overlay">
+        <div id="loadingGIF"></div>
+      </div>
+      <div id="modals-container" class="card">
+        <div id="modal-added" class="card modal" style="display:none">
+          <div class="modal-inner card-body">
+            <div class="modal-title">
+              <h4>added to cart</h4>
+            </div>
+            <div class="modal-img-container">
+              <img id="modal-added-img" class="card-img" src="#" alt="modal image" />
+            </div>
+            <div id="modal-added-btns" class="modal-btns">
+              <button class="checkout-btn btn btn-warning btn-sm">checkout</button>
+              <button class="cart-btn btn btn-info btn-sm">cart</button>
+              <button class="back-btn btn btn-secondary btn-sm">back</button>
+            </div>
+          </div>
+        </div>
+        <div id="modal-view" class="card modal" style="display:none">
+          <div class="modal-inner card-body">
+            <div class="modal-title">
+              <h4>description</h4>
+            </div>
+            <div class="modal-img-container">
+              <img id="modal-view-img" class="card-img" src="#" alt="modal image" />
+            </div>
+            <div id="modal-view-txt"></div>
+            <div id="modal-view-btns" class="modal-btns">
+              <button class="add-btn btn btn-warning btn-sm">add</button>
+              <button class="back-btn btn btn-secondary btn-sm">back</button>
+            </div>
+          </div>
+        </div>
+        <div id="modal-log" class="card modal">
+          <div class="modal-inner card-body">
+            <div class="modal-close">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="close-icon bi bi-x-square" fill="#000"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                <path fill-rule="evenodd"
+                  d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
+                <path fill-rule="evenodd"
+                  d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
+              </svg>
+            </div>
+            <div class="modal-icon">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-check" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M11 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM1.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM6 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm6.854.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+              </svg>
+            </div>
+            <div class="modal-log-inputs">
+              <input required="true" id="log-username" type="text" placeholder="ENTER USERNAME..." />
+              <input required="true" id="log-pw" type="password" placeholder="ENTER PASSWORD..." />
+            </div>
+            <div id="modal-log-btns" class="modal-btns">
+              <button id="log-btn" class="btn btn-warning btn-sm">login</button>
+              <button id="reg-modal-btn" class="btn btn-secondary btn-sm">not registered? click here</button>
+            </div>
+          </div>
+        </div>
+        <div id="modal-reg" class="card modal" style="display:none">
+          <div class="modal-inner card-body">
+            <div class="modal-close">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="close-icon bi bi-x-square" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                <path fill-rule="evenodd"
+                  d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
+                <path fill-rule="evenodd"
+                  d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
+              </svg>
+            </div>
+            <div class="modal-icon">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-plus" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M11 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM1.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM6 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm4.5 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                <path fill-rule="evenodd" d="M13 7.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0v-2z" />
+              </svg>
+            </div>
+            <div id="modal-reg-inputs">
+              <input required="true" id="reg-username" type="text" placeholder="CHOOSE USERNAME..."/>
+              <input required="true" id="reg-pw" type="password" placeholder="CREATE PASSWORD..."/>
+              <input required="true" id="reg-cpw" type="password" placeholder="CONFIRM PASSWORD..."/>
+            </div>
+            <div id="modal-reg-btns" class="modal-btns">
+              <button id="reg-btn" class="btn btn-warning btn-sm">register</button>
+              <button id="log-modal-btn" class="btn btn-secondary btn-sm">already registered? click here</button>
+            </div>
+          </div>
+        </div>
+        <div id="modal-success" class="card modal">
+          <div class="modal-inner card-body">
+            <div class="modal-icon">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-check" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M14 5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5zM1 4v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4H1z" />
+                <path d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z" />
+                <path fill-rule="evenodd"
+                  d="M10.854 7.646a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 10.293l2.646-2.647a.5.5 0 0 1 .708 0z" />
+              </svg>
+            </div>
+            <div class="modal-title">
+              <h4>transaction successful!</h4>
+            </div>
+            <div class="summary">
+              <div style="display:none">
+                <span class="sN">quantity</span>
+                <span> : </span>
+                <span class="sQ">0</span>
+              </div>
+              <div id="1" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="2" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="3" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="4" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="5" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="6" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="7" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="8" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="9" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="10" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="11" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="12" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="13" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="14" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="15" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="16" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="17" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="18" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div style="display:none">
+                <span class="sTN">total</span>
+                <span> : $</span>
+                <span class="sT">0</span>
+              </div>
+            </div>
+            <div id="modal-success-btn" class="modal-btns">
+              <button class="home-btn btn btn-warning btn-sm">go home</button>
+            </div>
+          </div>
+        </div>
+        <div id="modal-fail" class="card modal" style="display:none">
+          <div class="modal-inner card-body">
+            <div class="modal-icon">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-exclamation-triangle" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M7.938 2.016a.146.146 0 0 0-.054.057L1.027 13.74a.176.176 0 0 0-.002.183c.016.03.037.05.054.06.015.01.034.017.066.017h13.713a.12.12 0 0 0 .066-.017.163.163 0 0 0 .055-.06.176.176 0 0 0-.003-.183L8.12 2.073a.146.146 0 0 0-.054-.057A.13.13 0 0 0 8.002 2a.13.13 0 0 0-.064.016zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z" />
+                <path
+                  d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z" />
+              </svg>
+            </div>
+            <div class="modal-title">
+              <h4>transaction failed!</h4>
+            </div>
+            <div class="modal-fail-message">
+              <h6>please try again</h6>
+            </div>
+            <div id="modal-fail-btns" class="modal-btns">
+              <button id="retry-btn" class="btn btn-danger btn-sm">retry</button>
+              <button class="checkout-btn btn btn-secondary btn-sm">checkout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="filter" class="card" style="display:none">
+        <div id="filter-inner" class="card-body">
+          <div id="filter-main-title" class="filter-title">
+            <h4>filter by</h4>
+            <div id="filter-close">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="close-icon bi bi-x-square" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                <path fill-rule="evenodd"
+                  d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
+                <path fill-rule="evenodd"
+                  d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
+              </svg>
+            </div>
+          </div>
+          <div class="filter-price">
+            <div class="filter-title">price</div>
+            <div id="price-range">
+              <input id="min" type="number" placeholder="MIN" />
+              <input id="max" type="number" placeholder="MAX" />
+            </div>
+            <div id="price-btns" class="filter-btns">
+              <button id="range-one" class="btn btn-light btn-sm" data-max="50">$0 - $50</button>
+              <button id="range-two" class="btn btn-light btn-sm" data-max="100">$51 - $100</button>
+            </div>
+          </div>
+          <div class="filter-color">
+            <div class="filter-title">color</div>
+            <select class="options">
+              <option value="all" class="color-option">all</option>
+              <option value="black" class="color-option">black</option>
+              <option value="white" class="color-option">white</option>
+              <option value="gray" class="color-option">gray</option>
+              <option value="red" class="color-option">red</option>
+              <option value="green" class="color-option">green</option>
+              <option value="blue" class="color-option">blue</option>
+              <option value="mix" class="color-option">mix</option>
+            </select>
+          </div>
+          <div class="filter-brand">
+            <div class="filter-title">brand</div>
+            <div id="brand-btns" class="filter-btns">
+              <button class="brand-btn btn btn-light btn-sm">all</button>
+              <button class="brand-btn btn btn-light btn-sm">nike</button>
+              <button class="brand-btn btn btn-light btn-sm">adidas</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="cart" class="card" style="display:none">
+        <div id="cart-inner" class="card-body">
+          <div id="cart-close">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="close-icon bi bi-x-square" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+              <path fill-rule="evenodd"
+                d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
+              <path fill-rule="evenodd"
+                d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
+            </svg>
+          </div>
+          <div id="cart-totals">
+            <div>quantity:<span id="qTC">0</span></div>
+            <div>subtotal:$<span id="sTC">0</span></div>
+            <div>tax:$<span id="tTC">0</span></div>
+            <div>total:$<span id="tC">0</span></div>
+          </div>
+          <h6 id="cart-empty" style="block">-cart is empty-</h6>
+          <div id="cart-items">
+            <div id="1" style="display:none;" class="cart-item card">
+              <div class="cart-item-inner card-body">
+                <div class="cart-item-img-container">
+                  <img class="card-img" src="#" alt="cart item image" />
+                </div>
+                <div class="cart-item-info">
+                  <div class="cart-item-name"></div>
+                  <div>$<span class="cart-item-price"></span></div>
+                </div>
+                <div class="cart-item-quantity">
+                  <button class="decrement btn btn-danger btn-sm">-</button>
+                  <span class="cQT">0</span>
+                  <button class="increment btn btn-success btn-sm">+</button>
+                </div>
+              </div>
+            </div>
+            <div id="2" style="display:none;" class="cart-item card">
+              <div class="cart-item-inner card-body">
+                <div class="cart-item-img-container">
+                  <img class="card-img" src="#" alt="cart item image" />
+                </div>
+                <div class="cart-item-info">
+                  <div class="cart-item-name"></div>
+                  <div>$<span class="cart-item-price"></span></div>
+                </div>
+                <div class="cart-item-quantity">
+                  <button class="decrement btn btn-danger btn-sm">-</button>
+                  <span class="cQT">0</span>
+                  <button class="increment btn btn-success btn-sm">+</button>
+                </div>
+              </div>
+            </div>
+            <div id="3" style="display:none;" class="cart-item card">
+              <div class="cart-item-inner card-body">
+                <div class="cart-item-img-container">
+                  <img class="card-img" src="#" alt="cart item image" />
+                </div>
+                <div class="cart-item-info">
+                  <div class="cart-item-name"></div>
+                  <div>$<span class="cart-item-price"></span></div>
+                </div>
+                <div class="cart-item-quantity">
+                  <button class="decrement btn btn-danger btn-sm">-</button>
+                  <span class="cQT">0</span>
+                  <button class="increment btn btn-success btn-sm">+</button>
+                </div>
+              </div>
+            </div>
+            <div id="4" style="display:none;" class="cart-item card">
+              <div class="cart-item-inner card-body">
+                <div class="cart-item-img-container">
+                  <img class="card-img" src="#" alt="cart item image" />
+                </div>
+                <div class="cart-item-info">
+                  <div class="cart-item-name"></div>
+                  <div>$<span class="cart-item-price"></span></div>
+                </div>
+                <div class="cart-item-quantity">
+                  <button class="decrement btn btn-danger btn-sm">-</button>
+                  <span class="cQT">0</span>
+                  <button class="increment btn btn-success btn-sm">+</button>
+                </div>
+              </div>
+            </div>
+            <div id="5" style="display:none;" class="cart-item card">
+              <div class="cart-item-inner card-body">
+                <div class="cart-item-img-container">
+                  <img class="card-img" src="#" alt="cart item image" />
+                </div>
+                <div class="cart-item-info">
+                  <div class="cart-item-name"></div>
+                  <div>$<span class="cart-item-price"></span></div>
+                </div>
+                <div class="cart-item-quantity">
+                  <button class="decrement btn btn-danger btn-sm">-</button>
+                  <span class="cQT">0</span>
+                  <button class="increment btn btn-success btn-sm">+</button>
+                </div>
+              </div>
+            </div>
+            <div id="6" style="display:none;" class="cart-item card">
+              <div class="cart-item-inner card-body">
+                <div class="cart-item-img-container">
+                  <img class="card-img" src="#" alt="cart item image" />
+                </div>
+                <div class="cart-item-info">
+                  <div class="cart-item-name"></div>
+                  <div>$<span class="cart-item-price"></span></div>
+                </div>
+                <div class="cart-item-quantity">
+                  <button class="decrement btn btn-danger btn-sm">-</button>
+                  <span class="cQT">0</span>
+                  <button class="increment btn btn-success btn-sm">+</button>
+                </div>
+              </div>
+            </div>
+            <div id="7" style="display:none;" class="cart-item card">
+              <div class="cart-item-inner card-body">
+                <div class="cart-item-img-container">
+                  <img class="card-img" src="#" alt="cart item image" />
+                </div>
+                <div class="cart-item-info">
+                  <div class="cart-item-name"></div>
+                  <div>$<span class="cart-item-price"></span></div>
+                </div>
+                <div class="cart-item-quantity">
+                  <button class="decrement btn btn-danger btn-sm">-</button>
+                  <span class="cQT">0</span>
+                  <button class="increment btn btn-success btn-sm">+</button>
+                </div>
+              </div>
+            </div>
+            <div id="8" style="display:none;" class="cart-item card">
+              <div class="cart-item-inner card-body">
+                <div class="cart-item-img-container">
+                  <img class="card-img" src="#" alt="cart item image" />
+                </div>
+                <div class="cart-item-info">
+                  <div class="cart-item-name"></div>
+                  <div>$<span class="cart-item-price"></span></div>
+                </div>
+                <div class="cart-item-quantity">
+                  <button class="decrement btn btn-danger btn-sm">-</button>
+                  <span class="cQT">0</span>
+                  <button class="increment btn btn-success btn-sm">+</button>
+                </div>
+              </div>
+            </div>
+            <div id="9" style="display:none;" class="cart-item card">
+              <div class="cart-item-inner card-body">
+                <div class="cart-item-img-container">
+                  <img class="card-img" src="#" alt="cart item image" />
+                </div>
+                <div class="cart-item-info">
+                  <div class="cart-item-name"></div>
+                  <div>$<span class="cart-item-price"></span></div>
+                </div>
+                <div class="cart-item-quantity">
+                  <button class="decrement btn btn-danger btn-sm">-</button>
+                  <span class="cQT">0</span>
+                  <button class="increment btn btn-success btn-sm">+</button>
+                </div>
+              </div>
+            </div>
+            <div id="10" style="display:none;" class="cart-item card">
+              <div class="cart-item-inner card-body">
+                <div class="cart-item-img-container">
+                  <img class="card-img" src="#" alt="cart item image" />
+                </div>
+                <div class="cart-item-info">
+                  <div class="cart-item-name"></div>
+                  <div>$<span class="cart-item-price"></span></div>
+                </div>
+                <div class="cart-item-quantity">
+                  <button class="decrement btn btn-danger btn-sm">-</button>
+                  <span class="cQT">0</span>
+                  <button class="increment btn btn-success btn-sm">+</button>
+                </div>
+              </div>
+            </div>
+            <div id="11" style="display:none;" class="cart-item card">
+              <div class="cart-item-inner card-body">
+                <div class="cart-item-img-container">
+                  <img class="card-img" src="#" alt="cart item image" />
+                </div>
+                <div class="cart-item-info">
+                  <div class="cart-item-name"></div>
+                  <div>$<span class="cart-item-price"></span></div>
+                </div>
+                <div class="cart-item-quantity">
+                  <button class="decrement btn btn-danger btn-sm">-</button>
+                  <span class="cQT">0</span>
+                  <button class="increment btn btn-success btn-sm">+</button>
+                </div>
+              </div>
+            </div>
+            <div id="12" style="display:none;" class="cart-item card">
+              <div class="cart-item-inner card-body">
+                <div class="cart-item-img-container">
+                  <img class="card-img" src="#" alt="cart item image" />
+                </div>
+                <div class="cart-item-info">
+                  <div class="cart-item-name"></div>
+                  <div>$<span class="cart-item-price"></span></div>
+                </div>
+                <div class="cart-item-quantity">
+                  <button class="decrement btn btn-danger btn-sm">-</button>
+                  <span class="cQT">0</span>
+                  <button class="increment btn btn-success btn-sm">+</button>
+                </div>
+              </div>
+            </div>
+            <div id="13" style="display:none;" class="cart-item card">
+              <div class="cart-item-inner card-body">
+                <div class="cart-item-img-container">
+                  <img class="card-img" src="#" alt="cart item image" />
+                </div>
+                <div class="cart-item-info">
+                  <div class="cart-item-name"></div>
+                  <div>$<span class="cart-item-price"></span></div>
+                </div>
+                <div class="cart-item-quantity">
+                  <button class="decrement btn btn-danger btn-sm">-</button>
+                  <span class="cQT">0</span>
+                  <button class="increment btn btn-success btn-sm">+</button>
+                </div>
+              </div>
+            </div>
+            <div id="14" style="display:none;" class="cart-item card">
+              <div class="cart-item-inner card-body">
+                <div class="cart-item-img-container">
+                  <img class="card-img" src="#" alt="cart item image" />
+                </div>
+                <div class="cart-item-info">
+                  <div class="cart-item-name"></div>
+                  <div>$<span class="cart-item-price"></span></div>
+                </div>
+                <div class="cart-item-quantity">
+                  <button class="decrement btn btn-danger btn-sm">-</button>
+                  <span class="cQT">0</span>
+                  <button class="increment btn btn-success btn-sm">+</button>
+                </div>
+              </div>
+            </div>
+            <div id="15" style="display:none;" class="cart-item card">
+              <div class="cart-item-inner card-body">
+                <div class="cart-item-img-container">
+                  <img class="card-img" src="#" alt="cart item image" />
+                </div>
+                <div class="cart-item-info">
+                  <div class="cart-item-name"></div>
+                  <div>$<span class="cart-item-price"></span></div>
+                </div>
+                <div class="cart-item-quantity">
+                  <button class="decrement btn btn-danger btn-sm">-</button>
+                  <span class="cQT">0</span>
+                  <button class="increment btn btn-success btn-sm">+</button>
+                </div>
+              </div>
+            </div>
+            <div id="16" style="display:none;" class="cart-item card">
+              <div class="cart-item-inner card-body">
+                <div class="cart-item-img-container">
+                  <img class="card-img" src="#" alt="cart item image" />
+                </div>
+                <div class="cart-item-info">
+                  <div class="cart-item-name"></div>
+                  <div>$<span class="cart-item-price"></span></div>
+                </div>
+                <div class="cart-item-quantity">
+                  <button class="decrement btn btn-danger btn-sm">-</button>
+                  <span class="cQT">0</span>
+                  <button class="increment btn btn-success btn-sm">+</button>
+                </div>
+              </div>
+            </div>
+            <div id="17" style="display:none;" class="cart-item card">
+              <div class="cart-item-inner card-body">
+                <div class="cart-item-img-container">
+                  <img class="card-img" src="#" alt="cart item image" />
+                </div>
+                <div class="cart-item-info">
+                  <div class="cart-item-name"></div>
+                  <div>$<span class="cart-item-price"></span></div>
+                </div>
+                <div class="cart-item-quantity">
+                  <button class="decrement btn btn-danger btn-sm">-</button>
+                  <span class="cQT">0</span>
+                  <button class="increment btn btn-success btn-sm">+</button>
+                </div>
+              </div>
+            </div>
+            <div id="18" style="display:none;" class="cart-item card">
+              <div class="cart-item-inner card-body">
+                <div class="cart-item-img-container">
+                  <img class="card-img" src="#" alt="cart item image" />
+                </div>
+                <div class="cart-item-info">
+                  <div class="cart-item-name"></div>
+                  <div>$<span class="cart-item-price"></span></div>
+                </div>
+                <div class="cart-item-quantity">
+                  <button class="decrement btn btn-danger btn-sm">-</button>
+                  <span class="cQT">0</span>
+                  <button class="increment btn btn-success btn-sm">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="cart-btns">
+            <button id="clear-cart-btn" class="btn btn-danger btn-sm">clear cart</button>
+            <button class="checkout-btn btn btn-warning btn-sm">checkout</button>
+          </div>
+        </div>
+      </div>
+      <div id="navbar-container" class="container navbar fixed-top">
+        <div class="logo-container">
+          <img id="logo-icon" src="https://i.imgur.com/qKy2hID.png" width="40px" height="25px" alt="logo" />
+        </div>
+        <div id="nav-icons">
+          <svg id="filter-icon" width="40" height="40" viewBox="0 0 16 16" class="bi bi-funnel nav-icon"
+            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+
+            <path fill-rule="evenodd"
+              d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z" />
+
+          </svg>
+          <svg id="cart-icon" width="40" height="40" viewBox="0 0 16 16" class="bi bi-cart3 nav-icon"
+            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+          </svg>
+          <svg id="user-icon" width="40" height="40" viewBox="0 0 16 16" class="bi bi-file-person nav-icon"
+            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z" />
+            <path d="M13.784 14c-.497-1.27-1.988-3-5.784-3s-5.287 1.73-5.784 3h11.568z" />
+            <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+          </svg>
+        </div>
+      </div>
+      <div id="content-container" class="container">
+          <svg id="prev-arrow" width="100%" height="40px" viewBox="0 0 16 16" class="bi bi-chevron-compact-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M7.776 5.553a.5.5 0 0 1 .448 0l6 3a.5.5 0 1 1-.448.894L8 6.56 2.224 9.447a.5.5 0 1 1-.448-.894l6-3z"/>
+          </svg>
+        <div id="content-container-inner">
+          <div id="1" class="content-item card" style="display:none">
+            <div class="content-item-inner card-body">
+              <div class="content-item-img-container">
+                <img class="card-img content-img" src="https://i.imgur.com/G8YWq5g.gif" alt="content item" />
+              </div>
+              <div class="content-item-info">
+                <div class="content-item-name"></div>
+                <div class="content-item-price"></div>
+              </div>
+              <div class="content-item-btns">
+                <button class="add-btn btn btn-warning btn-sm">add</button>
+                <button class="view-btn btn btn-info btn-sm">view</button>
+              </div>
+            </div>
+          </div>
+          <div id="2" class="content-item card" style="display:none">
+            <div class="content-item-inner card-body">
+              <div class="content-item-img-container">
+                <img class="card-img content-img" src="https://i.imgur.com/G8YWq5g.gif" alt="content item" />
+              </div>
+              <div class="content-item-info">
+                <div class="content-item-name"></div>
+                <div class="content-item-price"></div>
+              </div>
+              <div class="content-item-btns">
+                <button class="add-btn btn btn-warning btn-sm">add</button>
+                <button class="view-btn btn btn-info btn-sm">view</button>
+              </div>
+            </div>
+          </div>
+          <div id="3" class="content-item card" style="display:none">
+            <div class="content-item-inner card-body">
+              <div class="content-item-img-container">
+                <img class="card-img content-img" src="https://i.imgur.com/G8YWq5g.gif" alt="content item" />
+              </div>
+              <div class="content-item-info">
+                <div class="content-item-name"></div>
+                <div class="content-item-price"></div>
+              </div>
+              <div class="content-item-btns">
+                <button class="add-btn btn btn-warning btn-sm">add</button>
+                <button class="view-btn btn btn-info btn-sm">view</button>
+              </div>
+            </div>
+          </div>
+          <div id="4" class="content-item card" style="display:none">
+            <div class="content-item-inner card-body">
+              <div class="content-item-img-container">
+                <img class="card-img content-img" src="https://i.imgur.com/G8YWq5g.gif" alt="content item" />
+              </div>
+              <div class="content-item-info">
+                <div class="content-item-name"></div>
+                <div class="content-item-price"></div>
+              </div>
+              <div class="content-item-btns">
+                <button class="add-btn btn btn-warning btn-sm">add</button>
+                <button class="view-btn btn btn-info btn-sm">view</button>
+              </div>
+            </div>
+          </div>
+          <div id="5" class="content-item card" style="display:none">
+            <div class="content-item-inner card-body">
+              <div class="content-item-img-container">
+                <img class="card-img content-img" src="https://i.imgur.com/G8YWq5g.gif" alt="content item" />
+              </div>
+              <div class="content-item-info">
+                <div class="content-item-name"></div>
+                <div class="content-item-price"></div>
+              </div>
+              <div class="content-item-btns">
+                <button class="add-btn btn btn-warning btn-sm">add</button>
+                <button class="view-btn btn btn-info btn-sm">view</button>
+              </div>
+            </div>
+          </div>
+          <div id="6" class="content-item card" style="display:none">
+            <div class="content-item-inner card-body">
+              <div class="content-item-img-container">
+                <img class="card-img content-img" src="https://i.imgur.com/G8YWq5g.gif" alt="content item" />
+              </div>
+              <div class="content-item-info">
+                <div class="content-item-name"></div>
+                <div class="content-item-price"></div>
+              </div>
+              <div class="content-item-btns">
+                <button class="add-btn btn btn-warning btn-sm">add</button>
+                <button class="view-btn btn btn-info btn-sm">view</button>
+              </div>
+            </div>
+          </div>
+          <div id="7" class="content-item card" style="display:none">
+            <div class="content-item-inner card-body">
+              <div class="content-item-img-container">
+                <img class="card-img content-img" src="https://i.imgur.com/G8YWq5g.gif" alt="content item" />
+              </div>
+              <div class="content-item-info">
+                <div class="content-item-name"></div>
+                <div class="content-item-price"></div>
+              </div>
+              <div class="content-item-btns">
+                <button class="add-btn btn btn-warning btn-sm">add</button>
+                <button class="view-btn btn btn-info btn-sm">view</button>
+              </div>
+            </div>
+          </div>
+          <div id="8" class="content-item card" style="display:none">
+            <div class="content-item-inner card-body">
+              <div class="content-item-img-container">
+                <img class="card-img content-img" src="https://i.imgur.com/G8YWq5g.gif" alt="content item" />
+              </div>
+              <div class="content-item-info">
+                <div class="content-item-name"></div>
+                <div class="content-item-price"></div>
+              </div>
+              <div class="content-item-btns">
+                <button class="add-btn btn btn-warning btn-sm">add</button>
+                <button class="view-btn btn btn-info btn-sm">view</button>
+              </div>
+            </div>
+          </div>
+          <div id="9" class="content-item card" style="display:none">
+            <div class="content-item-inner card-body">
+              <div class="content-item-img-container">
+                <img class="card-img content-img" src="https://i.imgur.com/G8YWq5g.gif" alt="content item" />
+              </div>
+              <div class="content-item-info">
+                <div class="content-item-name"></div>
+                <div class="content-item-price"></div>
+              </div>
+              <div class="content-item-btns">
+                <button class="add-btn btn btn-warning btn-sm">add</button>
+                <button class="view-btn btn btn-info btn-sm">view</button>
+              </div>
+            </div>
+          </div>
+          <div id="10" class="content-item card" style="display:none">
+            <div class="content-item-inner card-body">
+              <div class="content-item-img-container">
+                <img class="card-img content-img" src="https://i.imgur.com/G8YWq5g.gif" alt="content item" />
+              </div>
+              <div class="content-item-info">
+                <div class="content-item-name"></div>
+                <div class="content-item-price"></div>
+              </div>
+              <div class="content-item-btns">
+                <button class="add-btn btn btn-warning btn-sm">add</button>
+                <button class="view-btn btn btn-info btn-sm">view</button>
+              </div>
+            </div>
+          </div>
+          <div id="11" class="content-item card" style="display:none">
+            <div class="content-item-inner card-body">
+              <div class="content-item-img-container">
+                <img class="card-img content-img" src="https://i.imgur.com/G8YWq5g.gif" alt="content item" />
+              </div>
+              <div class="content-item-info">
+                <div class="content-item-name"></div>
+                <div class="content-item-price"></div>
+              </div>
+              <div class="content-item-btns">
+                <button class="add-btn btn btn-warning btn-sm">add</button>
+                <button class="view-btn btn btn-info btn-sm">view</button>
+              </div>
+            </div>
+          </div>
+          <div id="12" class="content-item card" style="display:none">
+            <div class="content-item-inner card-body">
+              <div class="content-item-img-container">
+                <img class="card-img content-img" src="https://i.imgur.com/G8YWq5g.gif" alt="content item" />
+              </div>
+              <div class="content-item-info">
+                <div class="content-item-name"></div>
+                <div class="content-item-price"></div>
+              </div>
+              <div class="content-item-btns">
+                <button class="add-btn btn btn-warning btn-sm">add</button>
+                <button class="view-btn btn btn-info btn-sm">view</button>
+              </div>
+            </div>
+          </div>
+          <div id="13" class="content-item card" style="display:none">
+            <div class="content-item-inner card-body">
+              <div class="content-item-img-container">
+                <img class="card-img content-img" src="https://i.imgur.com/G8YWq5g.gif" alt="content item" />
+              </div>
+              <div class="content-item-info">
+                <div class="content-item-name"></div>
+                <div class="content-item-price"></div>
+              </div>
+              <div class="content-item-btns">
+                <button class="add-btn btn btn-warning btn-sm">add</button>
+                <button class="view-btn btn btn-info btn-sm">view</button>
+              </div>
+            </div>
+          </div>
+          <div id="14" class="content-item card" style="display:none">
+            <div class="content-item-inner card-body">
+              <div class="content-item-img-container">
+                <img class="card-img content-img" src="https://i.imgur.com/G8YWq5g.gif" alt="content item" />
+              </div>
+              <div class="content-item-info">
+                <div class="content-item-name"></div>
+                <div class="content-item-price"></div>
+              </div>
+              <div class="content-item-btns">
+                <button class="add-btn btn btn-warning btn-sm">add</button>
+                <button class="view-btn btn btn-info btn-sm">view</button>
+              </div>
+            </div>
+          </div>
+          <div id="15" class="content-item card" style="display:none">
+            <div class="content-item-inner card-body">
+              <div class="content-item-img-container">
+                <img class="card-img content-img" src="https://i.imgur.com/G8YWq5g.gif" alt="content item" />
+              </div>
+              <div class="content-item-info">
+                <div class="content-item-name"></div>
+                <div class="content-item-price"></div>
+              </div>
+              <div class="content-item-btns">
+                <button class="add-btn btn btn-warning btn-sm">add</button>
+                <button class="view-btn btn btn-info btn-sm">view</button>
+              </div>
+            </div>
+          </div>
+          <div id="16" class="content-item card" style="display:none">
+            <div class="content-item-inner card-body">
+              <div class="content-item-img-container">
+                <img class="card-img content-img" src="https://i.imgur.com/G8YWq5g.gif" alt="content item" />
+              </div>
+              <div class="content-item-info">
+                <div class="content-item-name"></div>
+                <div class="content-item-price"></div>
+              </div>
+              <div class="content-item-btns">
+                <button class="add-btn btn btn-warning btn-sm">add</button>
+                <button class="view-btn btn btn-info btn-sm">view</button>
+              </div>
+            </div>
+          </div>
+          <div id="17" class="content-item card" style="display:none">
+            <div class="content-item-inner card-body">
+              <div class="content-item-img-container">
+                <img class="card-img content-img" src="https://i.imgur.com/G8YWq5g.gif" alt="content item" />
+              </div>
+              <div class="content-item-info">
+                <div class="content-item-name"></div>
+                <div class="content-item-price"></div>
+              </div>
+              <div class="content-item-btns">
+                <button class="add-btn btn btn-warning btn-sm">add</button>
+                <button class="view-btn btn btn-info btn-sm">view</button>
+              </div>
+            </div>
+          </div>
+          <div id="18" class="content-item card" style="display:none">
+            <div class="content-item-inner card-body">
+              <div class="content-item-img-container">
+                <img class="card-img content-img" src="https://i.imgur.com/G8YWq5g.gif" alt="content item" />
+              </div>
+              <div class="content-item-info">
+                <div class="content-item-name"></div>
+                <div class="content-item-price"></div>
+              </div>
+              <div class="content-item-btns">
+                <button class="add-btn btn btn-warning btn-sm">add</button>
+                <button class="view-btn btn btn-info btn-sm">view</button>
+              </div>
+            </div>
+          </div>
+        </div>
+          <svg id="next-arrow" width="100%" height="40px" viewBox="0 0 16 16" class="bi bi-chevron-compact-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z"/>
+          </svg>
+      </div>
+      <div id="checkout-container" class="container" style="display:none">
+        <div id="checkout-container-inner">
+          <div id="shipment-container">
+            <div class="checkout-icon">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-truck" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5v7h-1v-7a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5v1A1.5 1.5 0 0 1 0 10.5v-7zM4.5 11h6v1h-6v-1z" />
+                <path fill-rule="evenodd"
+                  d="M11 5h2.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5h-1v-1h1a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4.5h-1V5zm-8 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                <path fill-rule="evenodd" d="M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+              </svg></div>
+            <div id="shipment-inputs">
+              <input id="shipment-name" type="text" placeholder="FULL NAME..." />
+              <input id="shipment-address" type="text" placeholder="SHIPPING ADDRESS..." />
+            </div>
+          </div>
+          <div id="payment-container">
+            <div class="checkout-icon">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-credit-card" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z" />
+                <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z" />
+              </svg></div>
+            <div id="payment-inputs">
+              <input id="payment-name" type="text" placeholder="NAME ON CARD..." />
+              <input id="payment-card" type="text" placeholder="CARD NUMBER..." />
+              <input id="payment-date" type="text" placeholder="MM/YY" />
+            </div>
+          </div>
+          <div id="summary-container">
+            <div class="checkout-icon">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-square" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+                <path fill-rule="evenodd"
+                  d="M1.5 13A1.5 1.5 0 0 0 3 14.5h10a1.5 1.5 0 0 0 1.5-1.5V8a.5.5 0 0 0-1 0v5a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V3a.5.5 0 0 1 .5-.5h8a.5.5 0 0 0 0-1H3A1.5 1.5 0 0 0 1.5 3v10z" />
+              </svg></div>
+            <div class="summary">
+              <div style="display:none">
+                <span class="sN">quantity</span>
+                <span> : </span>
+                <span class="sQ">0</span>
+              </div>
+              <div id="1" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="2" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="3" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="4" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="5" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="6" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="7" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="8" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="9" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="10" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="11" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="12" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="13" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="14" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="15" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="16" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="17" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div id="18" style="display:none">
+                <span class="sIN"></span>
+                <span> : </span>
+                <span class="sIQ">0</span>
+              </div>
+              <div style="display:none">
+                <span class="sTN">total</span>
+                <span> : $</span>
+                <span class="sT">0</span>
+              </div>
+            </div>
+            <div id="summary-btns">
+              <button id="pay-btn" class="btn btn-warning btn-sm">pay</button>
+              <button id="mod-btn" class="btn btn-light btn-sm">modify</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="footer-container" class="container navbar fixed-bottom">
+        <span id="copyright">&copy;2020</span>
+        <div id="footer-icons">
+          <img src="https://i.imgur.com/0yP1sbr.png" width="25" height="25" alt="fb-social" />
+          <img src="https://i.imgur.com/tlUztXs.png" width="25" height="25" alt="ig-social" />
+          <img src="https://i.imgur.com/P1nQBLX.png" width="25" height="25" alt="tw-social" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="scripts/script.js"></script>
+</body>
+
+</html>

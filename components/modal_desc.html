@@ -1,0 +1,293 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<style>
+.modal-desc{
+  position:relative;
+  color:#fff;
+  background-color: #000;
+  text-transform: uppercase;
+  text-align: center;
+}
+.modal-desc-inner{
+  display: grid;
+  justify-items: center;
+}
+.modal-desc-img-div{
+  position: relative;
+  width:80%;
+}
+.modal-desc-txt{
+  position: relative;
+  width: 80%;
+}
+.modal-btns{
+  display: grid;
+  position: relative;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+}
+</style>
+<div class="modal-desc card" style="display:none">
+  <div class="modal-desc-inner card-body">
+    <div class="modal-desc-title">
+      <h1>description</h1>
+    </div>
+    <div class="modal-desc-img-div">
+      <img class="modal-desc-img card-img" src="#" alt="modal image"/>
+    </div>
+    <div class="modal-desc-txt">
+      
+    </div>
+    <div class="modal-btns">
+      <button class="modal-add btn btn-warning btn-sm">add to cart</button>
+      <button class="modal-back btn btn-secondary btn-sm">go back</button>
+    </div>
+  </div>
+</div>
+
+
+<div id="1" class="content-item card">
+  <div class="content-item-inner card-body">
+    <div class="content-item-img">
+      <img class="card-img" src="#" alt="content item"/>
+    </div>
+    <div class="content-item-info">
+      <div class="content-item-name"></div>
+      <div class="content-item-price"></div>
+    </div>
+    <div class="content-item-btns">
+      <button class="content-item-add btn btn-warning btn-sm">add to cart</button>
+      <button class="content-item-view btn btn-info btn-sm">view description</button>
+    </div>
+  </div>
+</div>
+<div id="2" class="content-item card">
+  <div class="content-item-inner card-body">
+    <div class="content-item-img">
+      <img class="card-img" src="#" alt="content item"/>
+    </div>
+    <div class="content-item-info">
+      <div class="content-item-name"></div>
+      <div class="content-item-price"></div>
+    </div>
+    <div class="content-item-btns">
+      <button class="content-item-add btn btn-warning btn-sm">add to cart</button>
+      <button class="content-item-view btn btn-info btn-sm">view description</button>
+    </div>
+  </div>
+</div>
+<div id="3" class="content-item card">
+  <div class="content-item-inner card-body">
+    <div class="content-item-img">
+      <img class="card-img" src="#" alt="content item"/>
+    </div>
+    <div class="content-item-info">
+      <div class="content-item-name"></div>
+      <div class="content-item-price"></div>
+    </div>
+    <div class="content-item-btns">
+      <button class="content-item-add btn btn-warning btn-sm">add to cart</button>
+      <button class="content-item-view btn btn-info btn-sm">view description</button>
+    </div>
+  </div>
+</div>
+<script>
+  let items = [
+  {
+    item_id:1,
+    name:"air jordan 1 mid se",
+    price:100,
+    color:["black"],
+    brand:"nike",
+    imageURL:"https://i.imgur.com/PrF3oge.jpg",
+    desc:"1.Vivamus quis auctor velit, id condimentum neque. Nam vel interdum dui, vel condimentum lorem."
+  },
+  {
+    item_id:2,
+    name:"air max 2090",
+    price:90,
+    color:["blue","red"],
+    brand:"nike",
+    imageURL:"https://i.imgur.com/1yah8fl.jpg",
+    desc:"2.Vivamus quis auctor velit, id condimentum neque. Nam vel interdum dui, vel condimentum lorem."
+  },
+  {
+    item_id:3,
+    name:"kyrie 6 asia irving v1",
+    price:80,
+    color:["black"],
+    brand:"nike",
+    imageURL:"https://i.imgur.com/vmPR8Xo.jpg",
+    desc:"3.Vivamus quis auctor velit, id condimentum neque. Nam vel interdum dui, vel condimentum lorem."
+  },
+  {
+    item_id:4,
+    name:"kyrie 6 asia irving v2",
+    price:80,
+    color:["gray"],
+    brand:"nike",
+    imageURL:"https://i.imgur.com/bAJ88C3.jpg",
+    desc:"4.Vivamus quis auctor velit, id condimentum neque. Nam vel interdum dui, vel condimentum lorem."
+  },
+  {
+    item_id:5,
+    name:"lebron 17",
+    price:100,
+    color:["white","mix"],
+    brand:"nike",
+    imageURL:"https://i.imgur.com/UHPhp32.jpg",
+    desc:"5.Vivamus quis auctor velit, id condimentum neque. Nam vel interdum dui, vel condimentum lorem."
+  },
+  {
+    item_id:6,
+    name:"dbreak type",
+    price:50,
+    color:["red","blue","mix"],
+    brand:"nike",
+    imageURL:"https://i.imgur.com/dPeWQQd.jpg",
+    desc:"6.Vivamus quis auctor velit, id condimentum neque. Nam vel interdum dui, vel condimentum lorem."
+  },
+  {
+    item_id:7,
+    name:"sb bruin react t",
+    price:120,
+    color:["gray","blue"],
+    brand:"nike",
+    imageURL:"https://i.imgur.com/jLjjOh1.jpg",
+    desc:"7.Vivamus quis auctor velit, id condimentum neque. Nam vel interdum dui, vel condimentum lorem."
+  },
+  {
+    item_id:8,
+    name:"zoom freak 2 naija",
+    price:40,
+    color:["green","white"],
+    brand:"nike",
+    imageURL:"https://i.imgur.com/NXmr6oF.jpg",
+    desc:"8.Vivamus quis auctor velit, id condimentum neque. Nam vel interdum dui, vel condimentum lorem."
+  },
+  {
+    item_id:9,
+    name:"air vapormax 360",
+    price:130,
+    color:["gray","red"],
+    brand:"nike",
+    imageURL:"https://i.imgur.com/37uVfk0.jpg",
+    desc:"9.Vivamus quis auctor velit, id condimentum neque. Nam vel interdum dui, vel condimentum lorem."
+  },
+  {
+    item_id:10,
+    name:"3mc",
+    price:65,
+    color:["black"],
+    brand:"adidas",
+    imageURL:"https://i.imgur.com/W7dtEpm.jpg",
+    desc:"10.Vivamus quis auctor velit, id condimentum neque. Nam vel interdum dui, vel condimentum lorem."
+  },
+  {
+    item_id:11,
+    name:"adidas 4d",
+    price:110,
+    color:["red"],
+    brand:"adidas",
+    imageURL:"https://i.imgur.com/3M9ATFQ.jpg",
+    desc:"11.Vivamus quis auctor velit, id condimentum neque. Nam vel interdum dui, vel condimentum lorem."
+  },
+  {
+    item_id:12,
+    name:"nova motion",
+    price:90,
+    color:["blue"],
+    brand:"adidas",
+    imageURL:"https://i.imgur.com/PYY7fif.jpg",
+    desc:"12.Vivamus quis auctor velit, id condimentum neque. Nam vel interdum dui, vel condimentum lorem."
+  },
+  {
+    item_id:13,
+    name:"ultra boost 20",
+    price:55,
+    color:["white","black"],
+    brand:"adidas",
+    imageURL:"https://i.imgur.com/aY514GD.jpg",
+    desc:"13.Vivamus quis auctor velit, id condimentum neque. Nam vel interdum dui, vel condimentum lorem."
+  },
+  {
+    item_id:14,
+    name:"lite racer adapt 3",
+    price:120,
+    color:["black"],
+    brand:"adidas",
+    imageURL:"https://i.imgur.com/bnl47ZM.jpg",
+    desc:"14.Vivamus quis auctor velit, id condimentum neque. Nam vel interdum dui, vel condimentum lorem."
+  },
+  {
+    item_id:15,
+    name:"nmd r1",
+    price:30,
+    color:["red"],
+    brand:"adidas",
+    imageURL:"https://i.imgur.com/cs45FA1.jpg",
+    desc:"15.Vivamus quis auctor velit, id condimentum neque. Nam vel interdum dui, vel condimentum lorem."
+  },
+  {
+    item_id:16,
+    name:"stan smith",
+    price:100,
+    color:["black"],
+    brand:"adidas",
+    imageURL:"https://i.imgur.com/jOTutTO.jpg",
+    desc:"16.Vivamus quis auctor velit, id condimentum neque. Nam vel interdum dui, vel condimentum lorem."
+  },
+  {
+    item_id:17,
+    name:"zx 2k 4d",
+    price:75,
+    color:["gray","black"],
+    brand:"adidas",
+    imageURL:"https://i.imgur.com/Hpwbs2u.png",
+    desc:"17.Vivamus quis auctor velit, id condimentum neque. Nam vel interdum dui, vel condimentum lorem."
+  },
+  {
+    item_id:18,
+    name:"busenitz vulc 2",
+    price:45,
+    color:["black"],
+    brand:"adidas",
+    imageURL:"https://i.imgur.com/QNPb7lA.png",
+    desc:"18.Vivamus quis auctor velit, id condimentum neque. Nam vel interdum dui, vel condimentum lorem."
+  }
+  ];
+  document.querySelectorAll(".content-item").forEach(content_item => {
+    items.forEach(item => {
+      if(content_item.id == item.item_id){
+        let image = content_item.children[0].children[0].children[0];
+        let name = content_item.children[0].children[1].children[0];
+        let price = content_item.children[0].children[1].children[1];
+
+        image.setAttribute("src", item.imageURL);
+        name.innerHTML = item.name;
+        price.innerHTML = "$"+item.price;
+      }
+    })
+  });
+  
+  document.querySelectorAll(".content-item-view").forEach(viewBtn =>{
+    viewBtn.addEventListener("click", event => {
+      let viewImg = viewBtn.parentElement.parentElement.children[0].children[0].src;
+      let modalImg = document.getElementsByClassName("modal-desc-img")[0];
+      
+      items.forEach(item => {
+      if(viewBtn.parentElement.parentElement.parentElement.id == item.item_id){
+        let viewDesc = document.getElementsByClassName("modal-desc-txt")[0];
+        let modalDesc = item.desc;
+        
+        viewDesc.innerHTML = modalDesc;
+      };
+        
+      })
+      
+      modalImg.setAttribute("src", viewImg);
+      
+      document.getElementsByClassName("modal-desc")[0].style.display = "block";
+    });
+  });
+
+</script>

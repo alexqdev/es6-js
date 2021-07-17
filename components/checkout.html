@@ -1,0 +1,202 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .checkout-inner-container {
+    position: relative;
+    display: grid;
+    grid-template:
+      "nav"
+      "shipment"
+      "payment"
+      "summary"
+      "footer";
+    text-align: center;
+
+  }
+
+  .checkout-content-container {
+    /* display: grid; */
+    position: relative;
+    width: 90vw;
+    margin: 0 auto;
+  }
+
+  .navbar-container {
+    grid-area: nav;
+  }
+
+  .shipment-container {
+    display: grid;
+    grid-area: shipment;
+    grid-template:
+      "sicon"
+      "sname"
+      "address";
+    justify-items: center;
+  }
+
+  .payment-container {
+    display: grid;
+    grid-area: payment;
+  }
+
+  .summary-container {
+    display: grid;
+    grid-area: summary;
+  }
+
+  .footer-container {
+    grid-area: footer;
+  }
+
+  .shipment-container svg {
+    grid-area: sicon;
+  }
+
+  .shipment-inputs {
+    width: 100%;
+  }
+
+  .shipment-name {
+    grid-area: sname;
+    width: 100%;
+  }
+
+  .shipment-address {
+    grid-area: address;
+    width: 100%;
+  }
+
+  .payment-container svg {
+    grid-area: picon;
+    justify-self: center;
+  }
+
+  .payment-name {
+    grid-area: pname;
+    width: 100%;
+  }
+
+  .payment-card {
+    grid-area: card;
+    width: 100%;
+  }
+
+  .payment-date {
+    grid-area: date;
+    width: 100%;
+  }
+
+  .payment-inputs {
+    display: grid;
+    grid-template:
+      "pname pname"
+      "card date";
+  }
+
+  .summary-container {
+    display: grid;
+  }
+
+  .summary-btns {
+    display: grid;
+  }
+
+  .checkout-content-container svg {
+    width: 50px;
+    height: 50px;
+  }
+
+  .copyright {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+</style>
+<div class="checkout-container">
+  <div class="checkout-inner-container">
+    <div class="navbar-container navbar">
+      <img src="https://i.imgur.com/qKy2hID.png" width="50" height="30" alt="logo" />
+      <div class="nav--icons">
+        <a href="#"><svg width="23" height="23" viewBox="0 0 16 16" class="bi bi-cart3 cart--btn" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+          </svg></a>
+        <a href="#"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list menu--btn" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+          </svg></a>
+        <a href="#"><svg width="23" height="23" viewBox="0 0 16 16" class="bi bi-file-person login--btn"
+            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z" />
+            <path d="M13.784 14c-.497-1.27-1.988-3-5.784-3s-5.287 1.73-5.784 3h11.568z" />
+            <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+          </svg></a>
+      </div>
+    </div>
+    <div class="checkout-content-container">
+      <div class="shipment-container">
+        <div class="shipment-icon">
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-truck" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5v7h-1v-7a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5v1A1.5 1.5 0 0 1 0 10.5v-7zM4.5 11h6v1h-6v-1z" />
+            <path fill-rule="evenodd"
+              d="M11 5h2.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5h-1v-1h1a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4.5h-1V5zm-8 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+            <path fill-rule="evenodd" d="M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+          </svg></div>
+        <div class="shipment-inputs">
+          <input class="shipment-name" type="text" placeholder="FULL NAME..." />
+          <input class="shipment-address" type="text" placeholder="SHIPPING ADDRESS..." />
+        </div>
+      </div>
+      <div class="payment-container">
+        <div class="payment-icon">
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-credit-card" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z" />
+            <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z" />
+          </svg></div>
+        <div class="payment-inputs">
+          <input class="payment-name" type="text" placeholder="NAME ON CARD..." />
+          <input class="payment-card" type="text" placeholder="CARD NUMBER..." />
+          <input class="payment-date" type="text" placeholder="MM/YY" />
+        </div>
+      </div>
+      <div class="summary-container">
+        <div class="summary-icon">
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-square" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+            <path fill-rule="evenodd"
+              d="M1.5 13A1.5 1.5 0 0 0 3 14.5h10a1.5 1.5 0 0 0 1.5-1.5V8a.5.5 0 0 0-1 0v5a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V3a.5.5 0 0 1 .5-.5h8a.5.5 0 0 0 0-1H3A1.5 1.5 0 0 0 1.5 3v10z" />
+          </svg></div>
+        <div class="summary"></div>
+        <div class="summary-btns">
+          <button class="pay-btn btn btn-warning btn-sm">pay now</button>
+          <button class="mod-btn btn btn-light btn-sm">modify order</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-container navbar">
+      <span class="copyright">2020</span>
+      <div class="footer--icons">
+        <img src="https://i.imgur.com/0yP1sbr.png" width="30" height="30" alt="fb-social" />
+        <img src="https://i.imgur.com/tlUztXs.png" width="30" height="30" alt="ig-social" />
+        <img src="https://i.imgur.com/P1nQBLX.png" width="30" height="30" alt="tw-social" />
+      </div>
+    </div>
+  </div>
+</div>
+<!--<script></script> -->
